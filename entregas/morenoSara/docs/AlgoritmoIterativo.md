@@ -4,12 +4,12 @@ Realizado por: Andrea Anaya: [@andreaanaya](https://github.com/andreaanaya), Sar
 La idea es la misma que en la versión recursiva, pero en vez de dejar que Java gestione los niveles con la pila de llamadas, lo hacemos nosotros a mano con un bucle `while`. En cada vuelta se decide si avanzar, retroceder o comprobar la solución.
 
 El problema consiste en resolver criptaritmos como:
-
+```
    S E N D
  + M O R E
  ---------
  M O N E Y
-
+```
 
 ```
   F O R T Y

@@ -1,7 +1,7 @@
 public class AlgoritmoRecursivo {
 
-    static int[] digito = new int[26];
-    static boolean[] usado = new boolean[10];
+    private static int[] digito = new int[26];
+    private static boolean[] usado = new boolean[10];
 
     public static void main(String[] args) {
         resolver(new String[]{"SEND", "MORE"}, "MONEY");

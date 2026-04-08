@@ -67,7 +67,7 @@ En cada vuelta del `while` pasa exactamente una de estas tres cosas, que se corr
 Se empieza en el nivel 0, que corresponde a la primera letra del array, en este caso la O.  
 Después se sigue con las siguientes en orden: D, E, V, N.
 
-## Nivel agotado (= `return` recursivo)
+## [Nivel agotado (= `return` recursivo)](https://github.com/Sara-Moreno-Andrade/25-26-EDA2/blob/ed934fb9bfa370441736fd8205e44acbe93f89b6/entregas/morenoSara/src/AlgoritmoIterativo.java#L31)
 ```java
 if (digito < 0) {
     digitoEnNivel[nivel] = 9;
@@ -80,7 +80,7 @@ if (digito < 0) {
 ```
 En la recursión, cuando el `for` terminaba sin encontrar nada, la función simplemente retornaba. Aquí hay que hacerlo a mano: se resetea el nivel a 9 para futuras visitas, se sube al nivel anterior, se deshace su asignación y se decrementa su dígito para continuar.
 
-## Nivel hoja (= caso base)
+## [Nivel hoja (= caso base)](https://github.com/Sara-Moreno-Andrade/25-26-EDA2/blob/ed934fb9bfa370441736fd8205e44acbe93f89b6/entregas/morenoSara/src/AlgoritmoIterativo.java#L44)
 ```java
 if (nivel == n - 1) {
     if (ecuacionValida(sumandos, resultado, asignacion))

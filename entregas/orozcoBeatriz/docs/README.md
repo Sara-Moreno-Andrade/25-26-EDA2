@@ -45,9 +45,9 @@ El bucle principal avanza letra a letra (`pos++`) cuando encuentra un d√≠gito v√
  
 ```java
 if (encontrado) {
-    pos++; // avanzar a la siguiente letra
+    pos++;
 } else {
-    pos--; // backtracking
+    pos--;
 }
 ```
  

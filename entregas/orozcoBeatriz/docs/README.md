@@ -1,6 +1,6 @@
 # Reto 002
  
-El problema consiste en resolver:
+El problema consiste en resolver algunas operaciones como:
  
 ```
   S E N D
@@ -15,7 +15,7 @@ Cada letra representa un dígito del 0 al 9 sin repetirse, y hay que encontrar q
  
 ## Cómo lo he planteado
  
-Mi idea fue ir asignándole números a las letras una a una de forma recursiva. Primero recojo todas las letras únicas del puzzle, y luego el método `asignar()` va probando dígitos del 0 al 9 para cada una. Cuando ya están todas asignadas compruebo si la suma se cumple, y si no, deshago la asignación y pruebo con otro número.
+Mi idea fue ir asignándole números a las letras una a una de forma recursiva. Primero recojo todas las letras únicas de cada operación, y luego el método `asignar()` va probando dígitos del 0 al 9 para cada una. Cuando ya están todas asignadas compruebo si la suma se cumple, y si no, deshago la asignación y pruebo con otro número.
  
 Hay un par de restricciones que hay que tener en cuenta: no se puede repetir un dígito que ya esté usado por otra letra, y ninguna palabra puede empezar por 0.
  

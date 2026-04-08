@@ -9,7 +9,7 @@ public class AlgoritmoRecursivo {
         resolver(new String[]{"ODD", "ODD"}, "EVEN");
     }
 
-    static void resolver(String[] sumandos, String resultado) {
+    private static void resolver(String[] sumandos, String resultado) {
         String letras = "";
         for (String palabra : sumandos) {
             for (char c : palabra.toCharArray()) {
@@ -26,7 +26,7 @@ public class AlgoritmoRecursivo {
         asignar(letras, 0, sumandos, resultado);
     }
 
-    static void asignar(String letras, int pos, String[] sumandos, String resultado) {
+    private static void asignar(String letras, int pos, String[] sumandos, String resultado) {
         if (pos == letras.length()) {
             if (verificar(sumandos, resultado)) {
                 imprimir(letras, sumandos, resultado);
@@ -53,7 +53,7 @@ public class AlgoritmoRecursivo {
         }
     }
 
-    static boolean esInicial(char c, String[] sumandos, String resultado) {
+    private static boolean esInicial(char c, String[] sumandos, String resultado) {
         for (String palabra : sumandos) {
             if (palabra.charAt(0) == c) {
                 return true;
@@ -62,7 +62,7 @@ public class AlgoritmoRecursivo {
         return resultado.charAt(0) == c;
     }
 
-    static long valor(String palabra) {
+    private static long valor(String palabra) {
         long v = 0;
         for (char c : palabra.toCharArray()) {
             v = v * 10 + digito[c - 'A'];
@@ -70,7 +70,7 @@ public class AlgoritmoRecursivo {
         return v;
     }
 
-    static boolean verificar(String[] sumandos, String resultado) {
+    private static boolean verificar(String[] sumandos, String resultado) {
         long suma = 0;
         for (String palabra : sumandos) {
             suma += valor(palabra);
@@ -78,7 +78,7 @@ public class AlgoritmoRecursivo {
         return suma == valor(resultado);
     }
 
-    static void imprimir(String letras, String[] sumandos, String resultado) {
+    private static void imprimir(String letras, String[] sumandos, String resultado) {
         System.out.print("Solución: ");
         for (char c : letras.toCharArray()) {
             System.out.print(c + "=" + digito[c - 'A'] + " ");

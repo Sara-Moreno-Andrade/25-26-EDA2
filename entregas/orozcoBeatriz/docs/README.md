@@ -19,7 +19,7 @@ Mi idea fue ir asignándole números a las letras una a una de forma recursiva. 
  
 Hay un par de restricciones que hay que tener en cuenta: no se puede repetir un dígito que ya esté usado por otra letra, y ninguna palabra puede empezar por 0.
  
-Lo bueno es que el código es completamente genérico, funciona para cualquier acertijo de este estilo solo cambiando las palabras en el `main`. Lo he probado con los tres puzzles del reto y los resuelve todos sin problema.
+Lo he probado con las tres operaciones pedidas del reto y los resuelve todos sin problema.
  
 ---
  
@@ -31,4 +31,4 @@ FORTY + TEN + TEN = SIXTY  →   29786 + 850 + 850 = 31486
 ODD + ODD = EVEN           →   dos soluciones: 655+655 y 855+855
 ```
  
-El tercero tiene dos soluciones porque las restricciones son menos estrictas al haber menos letras distintas.
+La tercera tiene dos soluciones porque las restricciones son menos estrictas al haber menos letras distintas.

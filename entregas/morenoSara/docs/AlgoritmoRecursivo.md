@@ -52,7 +52,7 @@ Se empieza por la primera letra del array y se sigue en orden. Por ejemplo:
 
 ---
 
-## Caso base (CB)
+## [Caso base (CB)](https://github.com/Sara-Moreno-Andrade/25-26-EDA2/blob/c3db192237505b44e4c1027f824be324f9c583d1/entregas/morenoSara/src/AlgoritmoRecursivo.java#L24)
 
      if (indice == letras.length)
 
@@ -61,7 +61,7 @@ Todas las letras tienen número asignado.
 - Se comprueba si la suma es correcta con ecuacionValida.
 - Si lo es, se imprime el resultado con imprimirResultado.
 
-## Caso recursivo (CR)
+## [Caso recursivo (CR)](https://github.com/Sara-Moreno-Andrade/25-26-EDA2/blob/c3db192237505b44e4c1027f824be324f9c583d1/entregas/morenoSara/src/AlgoritmoRecursivo.java#L42)
 
      resolverRecursivo(letras, sumandos, resultado, asignacion, digitosUsados, indice + 1);
 

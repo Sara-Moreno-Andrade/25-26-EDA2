@@ -21,7 +21,7 @@ Hay un par de restricciones que hay que tener en cuenta: no se puede repetir un 
 
 El [**caso base**](https://github.com/beatriizorozco/25-26-EDA2/blob/4c1a5685421ac1eae90d03bc0f2b1317ed0e3e24/entregas/orozcoBeatriz/src/AlgoritmoRecursivo.java#L30) es cuando `pos == letras.length()`, es decir, cuando ya no quedan letras por asignar. En ese momento se comprueba si la suma es correcta y si lo es, se imprime la solución.
  
-La [**llamada recursiva**](https://github.com/beatriizorozco/25-26-EDA2/blob/4c1a5685421ac1eae90d03bc0f2b1317ed0e3e24/entregas/orozcoBeatriz/src/AlgoritmoRecursivo.java#L49) es `asignar(letras, pos + 1, sumandos, resultado)`, que se hace justo después de asignar un dígito a la letra actual, avanzando a la siguiente posición.
+La [**llamada recursiva**](https://github.com/beatriizorozco/25-26-EDA2/blob/b8b7ead10e135df1492f21db6d3ace0f49b05bc3/entregas/orozcoBeatriz/src/AlgoritmoRecursivo.java#L40) es `asignar(letras, pos + 1, sumandos, resultado)`, que se hace justo después de asignar un dígito a la letra actual, avanzando a la siguiente posición.
  
 Lo he probado con las tres operaciones pedidas del reto y los resuelve todos sin problema.
  

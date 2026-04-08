@@ -1,86 +1,72 @@
 public class AlgoritmoRecursivo {
 
-    private static int[] digito = new int[26];
-    private static boolean[] usado = new boolean[10];
-
     public static void main(String[] args) {
-        resolver(new String[]{"SEND", "MORE"}, "MONEY");
-        resolver(new String[]{"FORTY", "TEN", "TEN"}, "SIXTY");
-        resolver(new String[]{"ODD", "ODD"}, "EVEN");
+        resolver(new char[]{'M', 'S', 'E', 'N', 'D', 'O', 'R', 'Y'},
+                new String[]{"SEND", "MORE"}, "MONEY");
+        resolver(new char[]{'S', 'F', 'T', 'O', 'R', 'Y', 'E', 'N', 'I', 'X'},
+                new String[]{"FORTY", "TEN", "TEN"}, "SIXTY");
+        resolver(new char[]{'E', 'O', 'D', 'V', 'N'},
+                new String[]{"ODD", "ODD"}, "EVEN");
     }
 
-    private static void resolver(String[] sumandos, String resultado) {
-        String letras = "";
+    private static void resolver(char[] letras, String[] sumandos, String resultado) {
+        int[] asignacion = new int[256];
+        boolean[] digitosUsados = new boolean[10];
+        resolverRecursivo(letras, sumandos, resultado, asignacion, digitosUsados, 0);
+    }
+
+    private static void resolverRecursivo(
+            char[] letras, String[] sumandos, String resultado,
+            int[] asignacion, boolean[] digitosUsados, int indice) {
+
+        if (indice == letras.length) {
+            if (ecuacionValida(sumandos, resultado, asignacion))
+                imprimirResultado(sumandos, resultado, asignacion);
+            return;
+        }
+
+        char letra = letras[indice];
+        for (int digito = 9; digito >= 0; digito--) {
+            if (!digitosUsados[digito] && !(digito == 0 && esPrimeraLetra(letra, sumandos, resultado))) {
+                asignacion[letra] = digito;
+                digitosUsados[digito] = true;
+                resolverRecursivo(letras, sumandos, resultado, asignacion, digitosUsados, indice + 1);
+                digitosUsados[digito] = false;
+            }
+        }
+    }
+
+    private static boolean ecuacionValida(String[] sumandos, String resultado, int[] asignacion) {
+        int suma = 0;
+        for (String s : sumandos)
+            suma += palabraANumero(s, asignacion);
+        return suma == palabraANumero(resultado, asignacion);
+    }
+
+    private static int palabraANumero(String palabra, int[] asignacion) {
+        int numero = 0;
+        for (char letra : palabra.toCharArray())
+            numero = numero * 10 + asignacion[letra];
+        return numero;
+    }
+
+    private static boolean esPrimeraLetra(char letra, String[] sumandos, String resultado) {
+        for (String s : sumandos)
+            if (s.charAt(0) == letra) return true;
+        return resultado.charAt(0) == letra;
+    }
+
+    private static void imprimirResultado(String[] sumandos, String resultado, int[] asignacion) {
+        int ancho = resultado.length();
         for (String palabra : sumandos) {
-            for (char c : palabra.toCharArray()) {
-                if (!letras.contains(String.valueOf(c))) {
-                    letras += c;
-                }
-            }
+            System.out.print(" ".repeat((ancho - palabra.length()) * 2));
+            for (char letra : palabra.toCharArray())
+                System.out.print(asignacion[letra] + " ");
+            System.out.println();
         }
-        for (char c : resultado.toCharArray()) {
-            if (!letras.contains(String.valueOf(c))) {
-                letras += c;
-            }
-        }
-        asignar(letras, 0, sumandos, resultado);
-    }
-
-    private static void asignar(String letras, int pos, String[] sumandos, String resultado) {
-        if (pos == letras.length()) {
-            if (verificar(sumandos, resultado)) {
-                imprimir(letras, sumandos, resultado);
-            }
-        } else {
-            char letra = letras.charAt(pos);
-            for (int d = 0; d <= 9; d++) {
-                if (!(d == 0 && esInicial(letra, sumandos, resultado)) && !usado[d]) {
-                    digito[letra - 'A'] = d;
-                    usado[d] = true;
-                    asignar(letras, pos + 1, sumandos, resultado);
-                    digito[letra - 'A'] = 0;
-                    usado[d] = false;
-                }
-            }
-        }
-    }
-
-    private static boolean esInicial(char c, String[] sumandos, String resultado) {
-        for (String palabra : sumandos) {
-            if (palabra.charAt(0) == c) {
-                return true;
-            }
-        }
-        return resultado.charAt(0) == c;
-    }
-
-    private static long valor(String palabra) {
-        long v = 0;
-        for (char c : palabra.toCharArray()) {
-            v = v * 10 + digito[c - 'A'];
-        }
-        return v;
-    }
-
-    private static boolean verificar(String[] sumandos, String resultado) {
-        long suma = 0;
-        for (String palabra : sumandos) {
-            suma += valor(palabra);
-        }
-        return suma == valor(resultado);
-    }
-
-    private static void imprimir(String letras, String[] sumandos, String resultado) {
-        System.out.print("Solución: ");
-        for (char c : letras.toCharArray()) {
-            System.out.print(c + "=" + digito[c - 'A'] + " ");
-        }
-        System.out.println();
-        for (String palabra : sumandos) {
-            System.out.println("  " + palabra + " = " + valor(palabra));
-        }
-        System.out.println("  " + resultado + " = " + valor(resultado));
-        System.out.println();
+        System.out.println("-".repeat(ancho * 2));
+        for (char letra : resultado.toCharArray())
+            System.out.print(asignacion[letra] + " ");
+        System.out.println("\n");
     }
 }
-

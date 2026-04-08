@@ -1,5 +1,5 @@
 # Reto 002
-Realizado por: Andrea Anaya: [@andreaanaya](https://github.com/andreaanaya), Sara Moreno: [@Sara-Moreno-Andrade](https://github.com/Sara-Moreno-Andrade), Beatriz Orozco: [@beatriizorozco](https://github.com/beatriizorozco) y Carla San Juan: [@carlamadero](https://github.com/carlamadero).
+
 El problema consiste en resolver algunas operaciones como:
  
 ```

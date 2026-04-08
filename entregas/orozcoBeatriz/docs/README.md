@@ -1,6 +1,6 @@
 # Reto 002
  
-El problema consiste en resolver acertijos tipo:
+El problema consiste en resolver:
  
 ```
   S E N D

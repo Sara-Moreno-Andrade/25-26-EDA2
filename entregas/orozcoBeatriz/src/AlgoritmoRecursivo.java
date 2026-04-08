@@ -31,25 +31,17 @@ public class AlgoritmoRecursivo {
             if (verificar(sumandos, resultado)) {
                 imprimir(letras, sumandos, resultado);
             }
-            return;
-        }
-
-        char letra = letras.charAt(pos);
-        for (int d = 0; d <= 9; d++) {
-            if (d == 0 && esInicial(letra, sumandos, resultado)) {
-                continue;
+        } else {
+            char letra = letras.charAt(pos);
+            for (int d = 0; d <= 9; d++) {
+                if (!(d == 0 && esInicial(letra, sumandos, resultado)) && !usado[d]) {
+                    digito[letra - 'A'] = d;
+                    usado[d] = true;
+                    asignar(letras, pos + 1, sumandos, resultado);
+                    digito[letra - 'A'] = 0;
+                    usado[d] = false;
+                }
             }
-            if (usado[d]) {
-                continue;
-            }
-
-            digito[letra - 'A'] = d;
-            usado[d] = true;
-
-            asignar(letras, pos + 1, sumandos, resultado);
-
-            digito[letra - 'A'] = 0;
-            usado[d] = false;
         }
     }
 
@@ -91,3 +83,4 @@ public class AlgoritmoRecursivo {
         System.out.println();
     }
 }
+
